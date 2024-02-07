@@ -4,5 +4,13 @@
 --
 local opt = vim.opt
 
-opt.shiftwidth = 2 -- Size of an indent
+opt.shiftwidth = 4 -- Size of an indent
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.number = false
 opt.relativenumber = false
+opt.cc="120"
+vim.filetype.add({
+    extension = { templ = "templ"}
+})
+

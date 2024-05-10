@@ -50,13 +50,15 @@ return {
 }
 
 
-
 -- return {
---   { "ellisonleao/gruvbox.nvim" },
+--   -- add gruvbox
+--   { "wittyjudge/gruvbox-material.nvim" },
+--
+--   -- Configure LazyVim to load gruvbox
 --   {
 --     "LazyVim/LazyVim",
 --     opts = {
---       colorscheme = "gruvbox",
+--       colorscheme = "gruvbox-material",
 --     },
 --   },
 -- }

@@ -1,51 +1,49 @@
 return {
     {
-    "neovim/nvim-lspconfig",
-    opts = {
-        inlay_hints = {
-            enabled = false, // vaitomamocu
-        },
-        servers = {
-            tailwindcss = {
-                -- exclude a filetype from the default_config
-                filetypes_exclude = { "markdown" },
-                -- add additional filetypes to the default_config
-                filetypes_include = { "templ", "html" },
-                -- to fully override the default_config, change the below
-                filetypes = { "templ", "html" },
+        "neovim/nvim-lspconfig",
+        opts = {
+            inlay_hints = {
+                enabled = false, -- vaitomamocu
             },
-            htmx = {
-                filetypes = { "html", "templ" },
-            },
-            html = {
-                filetypes = { "html", "templ" },
-            },
-            templ = {
-                format = {
-                    enable = false
+            servers = {
+                tailwindcss = {
+                    -- exclude a filetype from the default_config
+                    filetypes_exclude = { "markdown" },
+                    -- add additional filetypes to the default_config
+                    filetypes_include = { "templ", "html" },
+                    -- to fully override the default_config, change the below
+                    filetypes = { "templ", "html" },
+                },
+                htmx = {
+                    filetypes = { "html", "templ" },
+                },
+                html = {
+                    filetypes = { "html", "templ" },
+                },
+                templ = {
+                    format = {
+                        enable = false,
+                    },
                 },
             },
-        },
-        setup = {
-        tailwindcss = function(_, opts)
-            local tw = require("lspconfig.server_configurations.tailwindcss")
-            opts.filetypes = opts.filetypes or {}
+            setup = {
+                tailwindcss = function(_, opts)
+                    local tw = require("lspconfig.server_configurations.tailwindcss")
+                    opts.filetypes = opts.filetypes or {}
 
-            -- Add default filetypes
-            vim.list_extend(opts.filetypes, tw.default_config.filetypes)
+                    -- Add default filetypes
+                    vim.list_extend(opts.filetypes, tw.default_config.filetypes)
 
-            -- Remove excluded filetypes
-            --- @param ft string
-            opts.filetypes = vim.tbl_filter(function(ft)
-            return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
-            end, opts.filetypes)
+                    -- Remove excluded filetypes
+                    --- @param ft string
+                    opts.filetypes = vim.tbl_filter(function(ft)
+                        return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
+                    end, opts.filetypes)
 
-            -- Add additional filetypes
-            vim.list_extend(opts.filetypes, opts.filetypes_include or {})
-        end,
+                    -- Add additional filetypes
+                    vim.list_extend(opts.filetypes, opts.filetypes_include or {})
+                end,
+            },
         },
     },
-    }
 }
-
-

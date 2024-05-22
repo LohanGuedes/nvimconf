@@ -2,6 +2,9 @@ return {
     {
     "neovim/nvim-lspconfig",
     opts = {
+        inlay_hints = {
+            enabled = false, // vaitomamocu
+        },
         servers = {
             tailwindcss = {
                 -- exclude a filetype from the default_config

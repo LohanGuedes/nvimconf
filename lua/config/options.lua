@@ -4,7 +4,7 @@
 --
 local opt = vim.opt
 
--- opt.spell = false
+opt.spell = false
 
 -- Indenting
 opt.shiftwidth = 4
@@ -12,8 +12,8 @@ opt.tabstop = 4
 opt.softtabstop = 4
 
 -- UI looks & feel
--- opt.number = false
--- opt.relativenumber = false
+opt.number = false
+opt.relativenumber = false
 -- opt.cc = "120"
 
 opt.wrap = true
